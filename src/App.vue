@@ -1,21 +1,8 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router';
+import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <header>
-    <div class="bg-red-500 text-white p-4">Tailwind CSS Test</div>
-
-    <div class="wrapper">
-      <div class="bg-blue-500 text-white p-4 h-100 rounded-lg">
-        <nav>
-          <RouterLink to="/">Home</RouterLink>
-          <RouterLink to="/about">About</RouterLink>
-        </nav>
-      </div>
-    </div>
-  </header>
-
   <RouterView />
 </template>
 
