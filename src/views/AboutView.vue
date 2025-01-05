@@ -1,15 +1,21 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+  <Switch
+    v-model="enabled"
+    :class="enabled ? 'bg-blue-600' : 'bg-gray-200'"
+    class="relative inline-flex h-6 w-11 items-center rounded-full"
+  >
+    <span class="sr-only">Enable notifications</span>
+    <span
+      :class="enabled ? 'translate-x-6' : 'translate-x-1'"
+      class="inline-block h-4 w-4 transform rounded-full bg-white transition"
+    />
+  </Switch>
 </template>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-}
-</style>
+<script setup>
+import { ref } from 'vue';
+import { Switch } from '@headlessui/vue';
+
+const enabled = ref(false);
+</script>
+
