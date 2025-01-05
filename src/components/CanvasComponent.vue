@@ -17,6 +17,10 @@ const props = defineProps({
   height: {
     type: Number,
     default: 600
+  },
+  brushColor: {
+    type: String,
+    default: 'black'
   }
 });
 
@@ -31,7 +35,7 @@ onMounted(() => {
   canvas.isDrawingMode = true;
 
   // Optional: Customize brush settings
-  canvas.freeDrawingBrush.color = 'blue';
+  canvas.freeDrawingBrush.color = props.brushColor;
   canvas.freeDrawingBrush.width = 5;
 });
 
