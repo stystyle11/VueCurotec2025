@@ -3,7 +3,7 @@
     class="p-4 rounded shadow-md"
     :style="{ backgroundColor: color }"
   >
-    User:
+    <h1 class="text-lg font-bold text-white p-2">User:</h1>
     <h2 class="text-lg font-bold text-white p-2">{{ username }}</h2>
     <h2 class="text-lg font-bold text-white p-2">{{ color }}</h2>
   </div>
