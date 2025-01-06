@@ -34,7 +34,7 @@ onMounted(() => {
   // Enable drawing mode
   canvas.isDrawingMode = true;
 
-  // Optional: Customize brush settings
+  // Customize brush settings using props
   canvas.freeDrawingBrush.color = props.brushColor;
   canvas.freeDrawingBrush.width = 5;
 });

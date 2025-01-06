@@ -32,14 +32,15 @@ import CanvasComponent from '@/components/CanvasComponent.vue';
 import UserCardComponent from '@/components/UserCardComponent.vue';
 
 const userStore = useUserStore();
-
+// Get user Name from Pinia
 const username = computed(() => userStore.username);
-
+// Set a Random Color for Brush and User
 const randomColor = () => {
   const randomInt = Math.floor(Math.random() * 16777215);
 
   const hexColor = `#${randomInt.toString(16).padStart(6, '0')}`;
   return hexColor;
 };
+// Make sure the color will be the same for User and Brush
 const colorUserBrush = randomColor();
 </script>

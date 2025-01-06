@@ -10,6 +10,7 @@
 </template>
 
 <script setup>
+// Receive props from Page = Provider Pattern
 const props = defineProps({
   username: {
     type: String,
