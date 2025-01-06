@@ -92,7 +92,7 @@ const validateForm = () => {
 const handleSubmit = () => {
   if (validateForm()) {
     userStore.login(username.value, email.value);
-    console.log('valor username', username.value);
+
     router.push('/board');
     alert('User logged in successfully!');
   }
