@@ -4,8 +4,8 @@
     :style="{ backgroundColor: color }"
   >
     <h1 class="text-lg font-bold text-white p-2">User:</h1>
-    <h2 class="text-lg font-bold text-white p-2">{{ username }}</h2>
-    <h2 class="text-lg font-bold text-white p-2">{{ color }}</h2>
+    <h2 class="text-lg font-bold text-white p-2">UserName:{{ username }}</h2>
+    <h2 class="text-lg font-bold text-white p-2">UserColor:{{ color }}</h2>
   </div>
 </template>
 
