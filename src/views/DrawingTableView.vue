@@ -1,32 +1,45 @@
 <template>
   <div class="flex flex-col md:flex-row h-screen">
+    <!-- Left Drawer -->
     <div
       id="leftDrawer"
       class="w-full md:w-1/3 bg-blue-500 p-4 h-100 overflow-y-auto"
     >
       <h2 class="text-lg font-bold text-white pb-6">Users' Area:</h2>
-      <UserCard></UserCard>
+      <!-- Pass the username dynamically from the Pinia store -->
+      <UserCardComponent
+        :username="username"
+        :color="colorUserBrush"
+      />
     </div>
+
+    <!-- Main Content -->
     <div class="flex-1 flex flex-col items-center justify-center p-4">
       <h1>Fabric.js Drawing Example</h1>
       <CanvasComponent
         :canvasWidth="1000"
         :canvasHeight="600"
-        :brush-color="'blue'"
+        :brush-color="colorUserBrush"
       />
     </div>
   </div>
 </template>
 
-<script>
+<script setup>
+import { computed } from 'vue';
+import { useUserStore } from '@/stores/user'; // Import the Pinia store
 import CanvasComponent from '@/components/CanvasComponent.vue';
-import UserCard from '@/components/UserCard.vue';
+import UserCardComponent from '@/components/UserCardComponent.vue';
 
-export default {
-  name: 'DrawingTableView',
-  components: {
-    CanvasComponent,
-    UserCard
-  }
+const userStore = useUserStore();
+
+const username = computed(() => userStore.username);
+
+const randomColor = () => {
+  const randomInt = Math.floor(Math.random() * 16777215);
+
+  const hexColor = `#${randomInt.toString(16).padStart(6, '0')}`;
+  return hexColor;
 };
+const colorUserBrush = randomColor();
 </script>

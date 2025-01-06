@@ -19,6 +19,7 @@ export const useUserStore = defineStore('user', {
     },
     // Log in and save to localStorage
     login(username, email) {
+      console.log('pinia login', username);
       this.username = username;
       this.email = email;
       this.isLoggedIn = true;
@@ -33,6 +34,7 @@ export const useUserStore = defineStore('user', {
     },
     // Save the store state to localStorage
     saveToLocalStorage() {
+      console.log('pinia', this.username);
       const user = {
         username: this.username,
         email: this.email,

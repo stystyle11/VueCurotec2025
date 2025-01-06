@@ -57,13 +57,13 @@
 <script setup>
 import { ref } from 'vue';
 import { useUserStore } from '../stores/user';
-
+import { useRouter } from 'vue-router';
 const username = ref('');
 const email = ref('');
 const errors = ref({ username: '', email: '' });
 
 const userStore = useUserStore();
-
+const router = useRouter();
 const validateForm = () => {
   errors.value = { username: '', email: '' };
   let isValid = true;
@@ -91,7 +91,9 @@ const validateForm = () => {
 
 const handleSubmit = () => {
   if (validateForm()) {
-    userStore.setUser({ username: username.value, email: email.value });
+    userStore.login(username.value, email.value);
+    console.log('valor username', username.value);
+    router.push('/board');
     alert('User logged in successfully!');
   }
 };
